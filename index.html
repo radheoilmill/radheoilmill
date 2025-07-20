@@ -1,105 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - Radhe Oil Mill</title>
+  <title>રાધે ઓઈલ મિલ</title>
+
+  <meta name="language" content="gu">
+  <meta name="google" content="notranslate">
+  <link rel="alternate" hreflang="gu" href="https://radheoilmill.github.io/">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: "Noto Sans Gujarati", sans-serif;
+      background-color: #fffdf7;
+      overflow-x: hidden;
+    }
+    header {
+      background: #ff6600;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 24px;
+      letter-spacing: 1px;
+      word-wrap: break-word;
+    }
+    .menu-bar {
+      background: #000;
+      border-bottom: 3px solid #000;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      gap: 15px;
+      padding: 8px 5px;
+      flex-wrap: wrap;
     }
-    .login-box {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-    }
-    .logo-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 2px solid #ddd;
-    }
-    .login-box h2 {
-      margin-bottom: 30px;
+    .menu-bar a {
+      color: #fff;
+      text-decoration: none;
       font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.3s, color 0.3s;
+      padding: 6px 10px;
+      border-radius: 5px;
     }
-    .login-box input {
+    .menu-bar a:hover, .menu-bar a.active {
+      background: #fff;
+      color: #000;
+    }
+    #landing {
+      position: fixed;
+      top: 0; left: 0;
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-bottom: 2px solid #ddd;
-      outline: none;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    .login-box input:focus {
-      border-bottom: 2px solid #6c63ff;
-    }
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(to right, #36d1dc, #5b86e5);
-      border: none;
+      height: 100%;
+      background: url("bg1.jpeg") no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
       color: white;
-      border-radius: 25px;
+      text-align: center;
+      padding: 10px;
+    }
+    #landing img {
+      width: 90%;
+      max-width: 250px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 8px;
+    }
+    #startBtn {
+      margin-top: 25px;
+      padding: 12px 25px;
       font-size: 16px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 20px;
+      font-weight: bold;
       transition: 0.3s;
     }
-    .login-box button:hover {
-      opacity: 0.9;
+    #startBtn:hover { background: #1ebc59; }
+    #mainContent { display: none; }
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      margin: 20px 0;
     }
-    .login-box p {
-      margin-top: 20px;
-      font-size: 14px;
+    p {
+      font-size: 16px;
+      text-align: center;
+      line-height: 24px;
+      padding: 0 10px;
     }
-    .error {
-      color: red;
-      margin-top: 10px;
+    .button {
       font-size: 14px;
+      background-color: black;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin: 15px auto;
+      border-radius: 6px;
+    }
+    .product-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 15px 0;
+      padding: 0 10px;
+    }
+    .product-card {
+      width: 100%;
+      max-width: 220px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 10px;
+      background-color: white;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover { transform: scale(1.03); }
+    .product-card img { width: 100%; border-radius: 8px; }
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .whatsapp-button:hover { background-color: #1ebc59; }
+    .contact {
+      font-size: 16px;
+      text-align: center;
+      line-height: 26px;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    video {
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+    @media (min-width: 600px) {
+      .product-card { width: 45%; }
+    }
+    @media (min-width: 900px) {
+      .product-card { width: 220px; }
+      h1 { font-size: 36px; }
+      p { font-size: 18px; }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="login-box">
-<h1>WELCOME</h1>
-    <img src="logo rom.jpeg" alt="Logo" class="logo-img">
-    
-    <input type="email" id="email" placeholder="Enter your Gmail">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkLogin()">LOGIN</button>
-    <div class="error" id="errorMsg"></div>
-    <p>Don't have an account? <a href="#">Sign Up</a></p>
+  <!-- Landing Page -->
+  <div id="landing">
+    <marquee behavior="scroll" direction="left" scrollamount="8" style="font-size: 20px; font-weight: bold; margin-bottom: 100px; color: #25D366; letter-spacing: 1px;">
+      ✨ WELCOME TO THE RADHE OIL MILL ✨
+    </marquee>
+    <img src="image11.jpg" alt="Radhe Oil Mill">
+    <button id="startBtn" onclick="startWebsite()">START</button>
+  </div>
+
+  <!-- Main Content -->
+  <header>RADHE OIL MILL</header>
+
+  <nav class="menu-bar">
+    <a href="#home" class="active"><i class="fas fa-home"></i>HOME</a>
+    <a href="#products"><i class="fas fa-box-open"></i>PRODUCTS</a>
+    <a href="#contact"><i class="fas fa-phone"></i>CONTACT</a>
+    <a href="#about"><i class="fas fa-users"></i>ABOUT</a>
+    <a href="#follow"><i class="fas fa-child"></i>FOLLOW</a>
+  </nav>
+
+  <div id="mainContent">
+    <!-- Home Section -->
+    <div id="home">
+      <div style="text-align:center; margin-top:20px;">
+        <img src="image11.jpg" alt="Radhe Oil Mill Banner" style="width: 10%; border-radius: 600px;">
+      </div>
+      <p>રાધે ઓઈલ મિલ માં, અમે 100% શુદ્ધ, કેમિકલ-ફ્રી તેલ પ્રદાન કરીએ છીએ,<br> જે દરેક બોટલ સાથે શ્રેષ્ઠ સ્વાદ અને સ્વાસ્થ્યલાભ આપે છે...</p>
+      <div style="text-align:center;">
+        <a class="button" href="readmore.html">READ MORE</a>
+      </div>
+    </div>
+
+    <!-- Products Section -->
+    <div id="products">
+      <h1>PRODUCTS</h1>
+      <div class="product-container">
+        <div class="product-card">
+          <img src="image1.jpeg" alt="Product 1">
+          <h3>સિંગતેલ 15kg</h3>
+          <p><del style="color: gray;">₹3000</del> <strong style="color: green;">₹2900</strong></p>
+        </div>
+        <div class="product-card">
+          <img src="image2.jpeg" alt="Product 2">
+          <h3>સિંગતેલ 5L</h3>
+          <p><del style="color: gray;">₹1000</del> <strong style="color: green;">₹950</strong></p>
+        </div>
+        <div class="product-card">
+          <img src="image3.jpeg" alt="Product 3">
+          <h3>સિંગતેલ 1L</h3>
+          <p><del style="color: gray;">₹300</del> <strong style="color: green;">₹250</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <video src="vidio.mp4" controls></video>
+
+    <!-- Contact Section -->
+    <div id="contact" class="contact">
+      <h1>CONTACT US</h1>
+      <p><strong>ભરતભાઈ આર. જીંજાળા (સુરત ડેપો)</strong> – 📞 98791 22857</p>
+      <p><strong>આર. આર. જીંજાળા (સુરત)</strong> – 📞 98255 27424</p>
+      <p><strong>પ્રદીપભાઈ જી. જીંજાળા (દેવલી)</strong> – 📞 99781 24139</p>
+      <p><strong>રમેશભાઈ પી. જીંજાળા (દેવલી)</strong> – 📞 99131 37834</p>
+      <p><strong>WhatsApp ઓર્ડર:</strong> <a href="https://wa.me/919978124139" target="_blank" style="color: green; font-weight: bold;">99781 24139</a></p>
+      <div>
+         <a href="https://wa.me/919978124139" target="_blank" class="whatsapp-button">WhatsApp ઓર્ડર કરો</a>
+      </div>
+    </div>
+
+    <!-- About Section -->
+     <div id="about" class="contact">
+      <h1>ABOUT US</h1>
+      <p>🥜 * રાધે સિંગતેલ * 🥜 સૌરાષ્ટ્ર નું 100% શુધ્ધ સિંગતેલ* 🥜 🫘 સારી અને શુધ્ધ મગફળી નું પિલાણ થતું એકમાત્ર સ્થળ એટલે *રાધે ઓઈલ મિલ, દેવલી 🏭 *રાધે સીંગતેલ જ કેમ..._*⁉
+
+✅ *100% શુદ્ધ નેચરલ મહિનાઓ સુધી એજ સ્વાદ અને સુંગંધ ની ગેરંટી*👌🏻👌🏻<BR><BR>
+
+✅ *કેમિકલ વગરનું ડબલ કાપડ દ્વારા ફિલ્ટર*<BR><BR>
+
+✅ *સ્વાસ્થ્યપ્રદ*<BR><BR>
+
+✅ *નો એસન્સ*<BR><BR>
+
+✅ *નો કેમિકલ*<BR><BR>
+
+✅ *બેસ્ટ ક્વાલિટી*<BR><BR>
+
+👫ખાસ તો, *આપ રૂબરુ આવીને પણ તમારી 👁👁નજર સામે મગફળી નું પિલાણ કરાવી ડબ્બા ભરાવી શકો છો*
+..તો એકવાર ચોક્કસ થી મુલાકાત લેશો..🤝<BR><BR>
+
+🆓 *ફ્રી હોમ ડિલિવરી થઈ જશે* 🚚🚛<BR><BR>
+
+નવી સીઝન નવું તેલ નવો ભાવ 2900/15kg<BR><BR></p>
+    </div>
+
+  </div>
+
   </div>
 
   <script>
-    function checkLogin() {
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const error = document.getElementById('errorMsg');
-
-      if (email.endsWith("@gmail.com") && password !== "") {
-        window.location.href = "for.html";  // ✅ SUCCESS PAGE LINK
-      } else {
-        error.innerText = "માત્ર માન્ય Gmail એડ્રેસ અને પાસવર્ડ દાખલ કરો!";
-      }
+    function startWebsite() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
     }
+    const links = document.querySelectorAll('.menu-bar a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
   </script>
+
+  <!-- Follow Us Section -->
+  <div id="follow" style="background: black; padding: 15px;">
+    <div style="text-align: center;">
+      <h2 style="color: white;">FOLLOW US</h2>
+      <a href="https://www.instagram.com/radhe_oil_mill_" target="_blank">
+        <img src="insta.jpeg" alt="Instagram" style="width:40px; height:40px; border-radius: 8px;">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61556009265550" target="_blank">
+        <img src="face.jpeg" alt="Facebook" style="width:40px; height:40px; border-radius: 8px;">
+      </a>
+      <a href="https://wa.me/919978124139" target="_blank">
+        <img src="what.jpeg" alt="WhatsApp" style="width:40px; height:40px; border-radius: 8px;">
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>
