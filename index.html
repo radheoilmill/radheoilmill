@@ -1,129 +1,102 @@
 <!DOCTYPE html>
-<html lang="gu">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - રાધે ઓઈલ મિલ</title>
+  <title>Login - Radhe Oil Mill</title>
   <style>
     body {
-      font-family: "Noto Sans Gujarati", sans-serif;
-      background: linear-gradient(135deg, #3b61ff, #d04ad0);
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
     }
-    .login-container {
+    .login-box {
       background: white;
+      padding: 40px 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: flex;
-      padding: 30px;
-      max-width: 600px;
-      width: 90%;
-      align-items: center;
-    }
-    .login-container img {
-      width: 150px;
-      border-radius: 50%;
-      margin-right: 30px;
-    }
-    .login-form {
-      flex: 1;
+      width: 100%;
+      max-width: 400px;
       text-align: center;
     }
-    .login-form h2 {
+    .logo-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #333;
+      border: 2px solid #ddd;
     }
-    input[type="email"], input[type="password"] {
-      width: 80%;
+    .login-box h2 {
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .login-box input {
+      width: 100%;
       padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-    .checkbox-container input {
-      margin-right: 5px;
-      width: 16px;
-      height: 16px;
-    }
-    button {
-      background: #28a745;
-      color: white;
-      padding: 10px 30px;
+      margin: 10px 0;
       border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
+      border-bottom: 2px solid #ddd;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s;
     }
-    button:hover {
-      background: #218838;
+    .login-box input:focus {
+      border-bottom: 2px solid #6c63ff;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      border: none;
+      color: white;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .login-box button:hover {
+      opacity: 0.9;
+    }
+    .login-box p {
+      margin-top: 20px;
+      font-size: 14px;
     }
     .error {
       color: red;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-    .forgot {
       margin-top: 10px;
       font-size: 14px;
-      color: gray;
     }
   </style>
 </head>
-
 <body>
 
-  <div class="login-container">
-    <img src="logo rom.jpeg" alt="User">
-    <div class="login-form">
-      <h2>RADHE OIL MILL</h2>
-      <input type="email" id="email" placeholder="Email ID">
-      <input type="password" id="password" placeholder="Password">
-      
-      <div class="checkbox-container">
-        <input type="checkbox" id="showPass" onclick="togglePassword()">
-        <label for="showPass">Show Password</label>
-      </div>
-
-      <button onclick="checkLogin()">Login</button>
-      <div class="error" id="errorMsg"></div>
-      <div class="forgot">Forgot Username / Password?</div>
-    </div>
+  <div class="login-box">
+<h1>WELCOME</h1>
+    <img src="logo rom.jpeg" alt="Logo" class="logo-img">
+    
+    <input type="email" id="email" placeholder="Enter your Gmail">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkLogin()">LOGIN</button>
+    <div class="error" id="errorMsg"></div>
+    <p>Don't have an account? <a href="#">Sign Up</a></p>
   </div>
 
   <script>
-    function togglePassword() {
-      const passField = document.getElementById('password');
-      if (document.getElementById('showPass').checked) {
-        passField.type = "text";
-      } else {
-        passField.type = "password";
-      }
-    }
-
     function checkLogin() {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
       const error = document.getElementById('errorMsg');
 
       if (email.endsWith("@gmail.com") && password !== "") {
-        window.location.href = "for.html";
+        window.location.href = "for.html";  // ✅ SUCCESS PAGE LINK
       } else {
-        error.innerText = "કૃપા કરી સાચી Gmail અને પાસવર્ડ દાખલ કરો!";
+        error.innerText = "માત્ર માન્ય Gmail એડ્રેસ અને પાસવર્ડ દાખલ કરો!";
       }
     }
   </script>
